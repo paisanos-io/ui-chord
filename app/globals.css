@@ -30,6 +30,21 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Nothing on the page is selectable. Holding a chord key on iOS is a long press, and when the
+   pressed element can't be selected, Safari selects the nearest text that can: the credits, the
+   how-to list, the screen-reader heading. Text fields stay selectable so they can be typed in. */
+html {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+input,
+textarea,
+[contenteditable] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
 /* No focus rings or tap flashes anywhere: a pressed or chosen control never stays outlined. */
 *,
 *::before,
